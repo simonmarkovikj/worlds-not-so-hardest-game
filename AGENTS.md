@@ -49,10 +49,12 @@ This repository is a small, self-contained browser game. The agent is a thoughtf
 ## Git And Publishing
 
 - Work from `main` unless the user explicitly asks for another branch.
+- Treat Git as part of the agent's caretaking job: the user should not need to understand branches, staging, commits, or remotes to keep the project safe.
 - Never use force-push, hard reset, or destructive checkout commands.
 - Before committing, inspect the diff and run the relevant validation.
-- Commit directly to `main` only when the user has asked for it or clearly authorized it.
-- Push only after validation succeeds and the remote is configured.
+- After a cohesive, validated improvement reaches a stable checkpoint, make a small checkpoint commit and push it to `main` without waiting for the user to understand the Git steps.
+- Push periodically at sensible milestones, not after every keystroke and never while code is knowingly broken or half-finished.
+- Before publishing, confirm the working tree changes are understood and avoid including unrelated user work.
 - Use a short, descriptive commit message. Never commit secrets or unrelated changes.
 - Tell the user what was committed, where it was pushed, and any remaining risk.
 
