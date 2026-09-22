@@ -140,8 +140,10 @@
       player={x:45,y:H/2,r:11,speed:185,ghost:0,magnet:0,speedBoost:0,teleport:0,immunity:0,shield:0,shieldLives:0,shieldCheckpoint:null}; exit={x:W-56,y:H/2-32,w:28,h:64};
       const count=5+Math.floor(diff*1.3)+Math.floor(level/20);
       const corridorY=H/2;
-      const corridorGap=190;
-      for(let i=0;i<count;i++){ const x=145+i*Math.max(80,(W-290)/count); if(x>exit.x-45) continue; walls.push({x:x-17,y:0,w:34,h:corridorY-corridorGap/2,shape:'rect'}); walls.push({x:x-17,y:corridorY+corridorGap/2,w:34,h:H-corridorY-corridorGap/2,shape:'rect'}); }
+      const corridorGap=300;
+      const corridorTop=corridorY-corridorGap/2;
+      const corridorBottom=corridorY+corridorGap/2;
+      for(let i=0;i<count;i++){ const x=145+i*Math.max(80,(W-290)/count); if(x>exit.x-45) continue; walls.push({x:x-17,y:0,w:34,h:corridorTop,shape:'rect'}); walls.push({x:x-17,y:corridorBottom,w:34,h:H-corridorBottom,shape:'rect'}); }
       const coinCount=difficulties[diff][3];
       const freePoint=(margin=0, nearWall=false)=>{ let p; let attempts=0; do {
         p={x:100+random()*730,y:45+random()*470,r:10}; attempts++;
