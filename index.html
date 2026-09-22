@@ -147,6 +147,13 @@
         walls.push({x:x-16,y:0,w:32,h:corridorTop,shape:'rect'});
         walls.push({x:x-16,y:corridorBottom,w:32,h:H-corridorBottom,shape:'rect'});
       }
+      const edgeWallHeight=24;
+      walls.push({x:70,y:0,w:190,h:edgeWallHeight,shape:'rect'});
+      walls.push({x:330,y:0,w:190,h:edgeWallHeight,shape:'rect'});
+      walls.push({x:590,y:0,w:170,h:edgeWallHeight,shape:'rect'});
+      walls.push({x:70,y:H-edgeWallHeight,w:190,h:edgeWallHeight,shape:'rect'});
+      walls.push({x:330,y:H-edgeWallHeight,w:190,h:edgeWallHeight,shape:'rect'});
+      walls.push({x:590,y:H-edgeWallHeight,w:170,h:edgeWallHeight,shape:'rect'});
       const coinCount=difficulties[diff][3];
       const freePoint=(margin=0, nearWall=false)=>{ let p; let attempts=0; do {
         p={x:100+random()*730,y:45+random()*470,r:10}; attempts++;
