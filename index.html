@@ -149,6 +149,16 @@
         walls.push({x:x-16,y:0,w:32,h:topLength,shape:'rect'});
         walls.push({x:x-16,y:H-bottomLength,w:32,h:bottomLength,shape:'rect'});
       }
+      const middleBlockCount=2+diff+Math.floor(level/25);
+      for(let i=0;i<middleBlockCount;i++){
+        const w=48+random()*86;
+        const h=18+random()*24;
+        const x=105+random()*(exit.x-220-w);
+        const upperY=Math.max(35,corridorTop-h-18-random()*55);
+        const lowerY=Math.min(H-h-35,corridorBottom+18+random()*55);
+        const y=i%2===0?upperY:lowerY;
+        walls.push({x,y,w,h,shape:'rect'});
+      }
       const edgeWallHeight=24;
       walls.push({x:70,y:0,w:145, h:edgeWallHeight,shape:'rect'});
       walls.push({x:285,y:0,w:220, h:edgeWallHeight,shape:'rect'});
