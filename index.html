@@ -140,7 +140,8 @@
       player={x:45,y:H/2,r:11,speed:185,ghost:0,magnet:0,speedBoost:0,teleport:0,immunity:0,shield:0,shieldLives:0,shieldCheckpoint:null}; exit={x:W-56,y:H/2-32,w:28,h:64};
       const count=5+Math.floor(diff*1.3)+Math.floor(level/20);
       for(let i=0;i<count;i++){ let x=145+i*Math.max(80,(W-290)/count), gap=135+random()*65, y=45+random()*(H-90); if(x>exit.x-45) continue; walls.push({x:x-17,y:0,w:34,h:y-gap/2,shape:'rect'}); walls.push({x:x-17,y:y+gap/2,w:34,h:H-y-gap/2,shape:'rect'}); }
-      for(let i=0;i<3+Math.floor(diff/2);i++){ const w=42+random()*76,h=18+random()*34,x=210+random()*(W-390),y=35+random()*(H-70); if(x+w>exit.x-18||circleRect({x:x+w/2,y:y+h/2,r:22},exit)) continue; walls.push({x,y,w,h,shape:'rect'}); }
+      const midBlockCount=2+Math.floor(diff/2)+Math.floor(level/15);
+      for(let i=0;i<midBlockCount;i++){ const w=28+random()*90,h=28+random()*90,x=260+random()*(W-430),y=45+random()*(H-110); if(Math.abs(x-(W/2))<100 && Math.abs(y-(H/2))<80) continue; if(x+w>exit.x-18||circleRect({x:x+w/2,y:y+h/2,r:18},exit)) continue; if(circleRect({x:x+w/2,y:y+h/2,r:24}, {x:45,y:H/2-18,w:24,h:36})) continue; walls.push({x,y,w,h,shape:'rect'}); }
       const coinCount=difficulties[diff][3];
       const freePoint=(margin=0, nearWall=false)=>{ let p; let attempts=0; do {
         p={x:100+random()*730,y:45+random()*470,r:10}; attempts++;
